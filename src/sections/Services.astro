@@ -1,0 +1,19 @@
+---
+import Service from '../components/Service.astro';
+import { getServices } from '../lib/sanityClient';
+
+const services = await getServices();
+---
+
+<section>
+  <h2>Služby</h2>
+  {
+    services.map((service) => (
+      <Service
+        title={service.title}
+        body={service.content}
+        image={service.image}
+      />
+    ))
+  }
+</section>

@@ -1,0 +1,14 @@
+---
+import { urlForImage } from '../lib/sanityClient';
+
+export interface Props {
+  title: string;
+  image: any;
+}
+
+const { image, title } = Astro.props;
+---
+
+<li>
+  <img src={urlForImage(image)} alt={title} />
+</li>

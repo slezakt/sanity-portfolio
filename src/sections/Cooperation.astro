@@ -1,0 +1,15 @@
+---
+import CoopItem from '../components/CoopItem.astro';
+import { getCooperation } from '../lib/sanityClient';
+
+const cooperations = await getCooperation();
+---
+
+<section>
+  <h2>Spolupracuji</h2>
+  {
+    cooperations.map((coop) => (
+      <CoopItem title={coop.title} image={coop.image} />
+    ))
+  }
+</section>
